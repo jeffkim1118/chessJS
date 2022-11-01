@@ -1,3 +1,5 @@
+import PIECES from "./pieces";
+
 let chessBoard = document.querySelector('.chessboard')
 
 for(let row = 0; row < 8; row++){
@@ -7,9 +9,9 @@ for(let row = 0; row < 8; row++){
     for(let column = 0; column < 8; column++){
 
         if(boxStartColorWhite){
-            boxColor = column % 2 === 0 ? '#aa8100' : '#eee5cc';
+            boxColor = column % 2 === 0 ? '#ddcc99' : '#eee5cc';
         }else
-            boxColor = column % 2 === 0 ? '#eee5cc' : '#aa8100';
+            boxColor = column % 2 === 0 ? '#eee5cc' : '#ddcc99';
         
             let box = document.createElement('div')
             box.style.width = chessBoard.clientWidth / 8 + 'px'
@@ -18,9 +20,11 @@ for(let row = 0; row < 8; row++){
             box.style.backgroundColor = boxColor;
 
             chessBoard.append(box)
-        
-    
     }
+}
+
+for(const piece of PIECES){
+   chessBoard.appendChild(piece)
 }
 
 
